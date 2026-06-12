@@ -44,6 +44,8 @@ export const en = {
     desc2: "All staff are fully licensed and meet compliance standards. We specialize in Chinese language and culturally aligned care to ensure high-quality service.",
     quickLinks: "Quick Links",
     contact: "Contact",
+    privacy: "Privacy Policy",
+    terms: "Terms of Service",
   },
   apply: {
     title: "Apply now",

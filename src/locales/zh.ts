@@ -44,6 +44,8 @@ export const zh = {
     desc2: "所有員工皆具備完全執照並符合合規標準。我們專注於提供中文及文化契合的護理服務，確保高品質的服務體驗。",
     quickLinks: "快速連結",
     contact: "聯絡我們",
+    privacy: "隱私政策",
+    terms: "服務條款",
   },
   apply: {
     title: "立即申請",
