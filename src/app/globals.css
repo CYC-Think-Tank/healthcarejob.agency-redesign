@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #e03131;
+  --color-brand-hover: #c92a2a;
+  --color-brand-light: #fff5f5;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff; /* Keeping clean light mode as default for this medical brand */
+    --foreground: #111827;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  @apply antialiased;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/90 backdrop-blur-md border border-white/20 shadow-sm;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
