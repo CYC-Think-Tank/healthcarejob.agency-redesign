@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Phone, Users, Stethoscope, Building2 } from "lucide-react";
 import ServiceCard from "@/components/ui/ServiceCard";
+import HeroVideo from "@/components/ui/HeroVideo";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
@@ -12,16 +13,14 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="relative text-white py-20 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-[85vh] overflow-hidden">
-        {/* Background Image & Overlay */}
+        {/* Background Video & Overlay */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/backgroundhomepage.jpeg"
-            alt="Healthcare Facility Background"
-            fill
-            className="object-cover object-center"
-            priority
+          <HeroVideo
+            videoSrc="/video.mp4"
+            poster="/carefacility.jpg"
+            photos={["/carefacility.jpg", "/lobby.jpg", "/carefacility2.jpg"]}
           />
-          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(140, 0, 0, 0.8)' }} />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(140, 0, 0, 0.7)' }} />
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center -mt-16">
@@ -112,9 +111,9 @@ export default function Home() {
           
           {/* Image */}
           <div className="relative min-h-[400px] lg:min-h-full">
-            <Image 
-              src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=2000&auto=format&fit=crop"
-              alt="Nurse providing care to an elderly patient"
+            <Image
+              src="/carefacility.jpg"
+              alt="Modern healthcare care facility"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -150,6 +149,50 @@ export default function Home() {
         </div>
       </section>
       
+      {/* Facilities Gallery */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-bold tracking-tight text-brand mb-4"
+            >
+              {t.home.galleryTitle}
+            </motion.h2>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto text-balance">
+              {t.home.gallerySubtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { src: "/lobby.jpg", alt: "Care facility lobby" },
+              { src: "/pic.jpg", alt: "Caregiver supporting a resident" },
+              { src: "/bedroom.jpg", alt: "Resident bedroom" },
+            ].map((img, index) => (
+              <motion.div
+                key={img.src}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative h-72 rounded-2xl overflow-hidden shadow-sm group"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer Banner */}
       <section className="bg-brand text-white py-16 px-4 sm:px-6 lg:px-8 border-t-4 border-brand-hover">
          <div className="max-w-4xl mx-auto text-center space-y-6">

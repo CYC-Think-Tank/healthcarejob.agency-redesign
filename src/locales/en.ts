@@ -22,6 +22,8 @@ export const en = {
     rpnDesc: "Clinical care, including medication, wound care, and monitoring.",
     nsTitle: "NS Management",
     nsDesc: "Facility oversight, staff performance, and care quality supervision.",
+    galleryTitle: "Inside Our Care Environments",
+    gallerySubtitle: "Comfortable, dignified spaces designed for healthy aging and quality care.",
     footerBannerEmail: "care@healthcarejob.agency",
     footerBannerDesc: "HealthcareJob.Agency provides compassionate and comprehensive staffing solutions for long-term care (LTC) facilities, home and private care, and retirement living communities."
   },

@@ -13,7 +13,7 @@ export default function CareerPage() {
       <section className="relative text-white py-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-[40vh] overflow-hidden bg-brand">
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
-          <Image 
+          <Image
             src="/backgroundhomepage.jpeg"
             alt="Healthcare Facility Background"
             fill
@@ -78,7 +78,7 @@ export default function CareerPage() {
               className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col"
             >
               <div className="relative h-48 w-full">
-                <Image 
+                <Image
                   src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=800&auto=format&fit=crop"
                   alt="Personal Support Worker"
                   fill
@@ -131,7 +131,7 @@ export default function CareerPage() {
               className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col"
             >
               <div className="relative h-48 w-full">
-                <Image 
+                <Image
                   src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=800&auto=format&fit=crop"
                   alt="Registered Practical Nurse"
                   fill

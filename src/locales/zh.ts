@@ -22,6 +22,8 @@ export const zh = {
     rpnDesc: "提供臨床護理，包括藥物管理、傷口護理及健康監測。",
     nsTitle: "NS 管理",
     nsDesc: "提供設施監督、員工績效管理與護理品質監控。",
+    galleryTitle: "走進我們的護理環境",
+    gallerySubtitle: "為健康老齡化與優質護理而設計的舒適、有尊嚴的空間。",
     footerBannerEmail: "care@healthcarejob.agency",
     footerBannerDesc: "HealthcareJob.Agency 為長期護理（LTC）機構、家庭及私人護理和退休生活社區提供富有同理心且全面的人員配置解決方案。"
   },

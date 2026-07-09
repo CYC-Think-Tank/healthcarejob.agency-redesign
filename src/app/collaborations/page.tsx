@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { BookOpen, HeartHandshake, Briefcase } from "lucide-react";
 import InstitutionBadge from "@/components/ui/InstitutionBadge";
 import { useLanguage } from "@/context/LanguageContext";
@@ -75,8 +76,22 @@ export default function CollaborationsPage() {
 
       {/* Mission Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <motion.div 
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative h-72 lg:h-full min-h-80 rounded-3xl overflow-hidden shadow-sm"
+          >
+            <Image
+              src="/carefacility2.jpg"
+              alt="Care facility interior"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </motion.div>
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
