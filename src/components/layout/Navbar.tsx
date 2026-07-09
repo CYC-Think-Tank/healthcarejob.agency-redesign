@@ -51,6 +51,12 @@ export default function Navbar() {
               </Link>
             ))}
             <a
+              href="https://healthcare-job-agency-gpbjdvfqftgwedf7.eastus2-01.azurewebsites.net/sign-in"
+              className="text-sm font-medium text-gray-600 hover:text-brand transition-colors"
+            >
+              {t.nav.staffPortal}
+            </a>
+            <a
               href="https://healthcare-job-agency-gpbjdvfqftgwedf7.eastus2-01.azurewebsites.net/apply-now"
               className="bg-brand hover:bg-brand-hover text-white px-5 py-2 rounded-md text-sm font-semibold transition-all hover:shadow-sm"
             >
@@ -103,6 +109,20 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
+              <a
+                href="https://healthcare-job-agency-gpbjdvfqftgwedf7.eastus2-01.azurewebsites.net/sign-in"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand hover:bg-brand-light"
+                onClick={() => setIsOpen(false)}
+              >
+                {t.nav.staffPortal}
+              </a>
+              <a
+                href="https://healthcare-job-agency-gpbjdvfqftgwedf7.eastus2-01.azurewebsites.net/apply-now"
+                className="block mt-2 mx-3 px-3 py-2 rounded-md text-base font-semibold text-center text-white bg-brand hover:bg-brand-hover transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {t.nav.apply}
+              </a>
               <div className="mt-4 px-3 flex gap-4 text-sm font-medium">
                 <button 
                   onClick={() => { setLanguage('en'); setIsOpen(false); }}

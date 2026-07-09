@@ -3,6 +3,7 @@ export const en = {
     services: "Our Services",
     collaboration: "Collaboration",
     career: "Career",
+    staffPortal: "Staff Portal",
     apply: "Apply Now"
   },
   home: {

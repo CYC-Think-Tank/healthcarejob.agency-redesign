@@ -3,6 +3,7 @@ export const zh = {
     services: "我們的服務",
     collaboration: "合作夥伴",
     career: "職業發展",
+    staffPortal: "員工入口",
     apply: "立即申請"
   },
   home: {
