@@ -23,7 +23,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className="sticky top-0 z-50 w-full glass"
+      className="sticky top-0 z-50 w-full bg-white shadow-sm border-b border-gray-100"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -50,12 +50,12 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link
-              href="/apply"
+            <a
+              href="https://healthcare-job-agency-gpbjdvfqftgwedf7.eastus2-01.azurewebsites.net/apply-now"
               className="bg-brand hover:bg-brand-hover text-white px-5 py-2 rounded-md text-sm font-semibold transition-all hover:shadow-sm"
             >
               {t.nav.apply}
-            </Link>
+            </a>
             <div className="flex items-center gap-2 text-sm font-medium text-gray-400">
               <button 
                 onClick={() => setLanguage('en')}

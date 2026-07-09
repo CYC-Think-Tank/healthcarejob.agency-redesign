@@ -39,8 +39,22 @@ export default function CollaborationsPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header Section */}
-      <section className="bg-white py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
+      <section className="relative overflow-hidden bg-linear-to-b from-brand/5 via-white to-white py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
+        {/* Decorative background glows */}
+        <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-brand/10 blur-3xl" />
+          <div className="absolute -bottom-32 -right-24 w-md h-112 rounded-full bg-brand/10 blur-3xl" />
+          <div
+            className="absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
+              backgroundSize: "28px 28px",
+              color: "#8c0000",
+            }}
+          />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

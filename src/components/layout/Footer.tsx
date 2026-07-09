@@ -58,7 +58,7 @@ export default function Footer() {
               <li><Link href="/#services" className="hover:text-brand transition-colors">{t.nav.services}</Link></li>
               <li><Link href="/collaborations" className="hover:text-brand transition-colors">{t.nav.collaboration}</Link></li>
               <li><Link href="/career" className="hover:text-brand transition-colors">{t.nav.career}</Link></li>
-              <li><Link href="/apply" className="hover:text-brand transition-colors">{t.nav.apply}</Link></li>
+              <li><a href="https://healthcare-job-agency-gpbjdvfqftgwedf7.eastus2-01.azurewebsites.net/apply-now" className="hover:text-brand transition-colors">{t.nav.apply}</a></li>
             </ul>
           </motion.div>
           

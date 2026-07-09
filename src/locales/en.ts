@@ -22,7 +22,7 @@ export const en = {
     nsTitle: "NS Management",
     nsDesc: "Facility oversight, staff performance, and care quality supervision.",
     footerBannerEmail: "care@healthcarejob.agency",
-    footerBannerDesc: "All staff are fully licensed and meet compliance standards. We specialize in Chinese language and culturally aligned care to ensure high-quality service."
+    footerBannerDesc: "HealthcareJob.Agency provides compassionate and comprehensive staffing solutions for long-term care (LTC) facilities, home and private care, and retirement living communities."
   },
   collaborations: {
     title: "R&D and Institutional Collaborations",
@@ -89,5 +89,51 @@ export const en = {
     submit: "Submit Application",
     staffSignIn: "Staff sign in",
     checkStatus: "Check status"
+  },
+  career: {
+    heroTitle: "Ready to Join Us?",
+    heroSubtitle: "Join HealthcareJob.Agency today and take the first step towards a rewarding career in personal support for long-term care homes.",
+    applyNow: "Apply Now",
+    sectionTitle: "Career",
+    psw: {
+      title: "Personal Support Worker (PSW)",
+      summaryLabel: "Position Summary:",
+      summary: "As a Personal Support Worker in our Long-Term Care facility, you will provide direct, hands-on care to residents, supporting their daily living activities while promoting dignity, independence, and overall quality of life.",
+      respLabel: "Key Responsibilities:",
+      resp1: "Provide companionship, engage in social activities, and encourage resident participation.",
+      resp2: "Maintain a clean, safe, and comfortable environment.",
+      resp3: "Support safe mobility and transfers using assistive devices as needed.",
+      resp4: "Assist with meals including feeding and monitoring dietary restrictions or preferences.",
+      resp5: "Assist residents with personal hygiene, grooming, dressing, bathing, and toileting.",
+      resp6: "Observe and report changes in residents' physical or emotional conditions to nursing staff.",
+      resp7: "Comply with infection control protocols, health and safety standards, and LTC regulations.",
+      resp8: "Document care provided and resident observations accurately and promptly.",
+      qualLabel: "Qualifications:",
+      qual1: "PSW Certificate from an accredited program (NACC-accredited preferred).",
+      qual2: "Experience in long-term care or similar settings is an asset.",
+      qual3: "Compassionate, patient, and respectful with strong interpersonal skills.",
+      qual4: "Ability to work collaboratively as part of a healthcare team.",
+      qual5: "Ability to communicate in Chinese (Mandarin or Cantonese) is strongly preferred."
+    },
+    rpn: {
+      title: "Registered Practical Nurse (RPN)",
+      summaryLabel: "Position Summary:",
+      summary: "As an RPN in our Long-Term Care facility, you will be responsible for delivering nursing care and coordinating with the healthcare team to support the health, safety, and well-being of residents.",
+      respLabel: "Key Responsibilities:",
+      resp1: "Supervise and support PSWs and other support staff in the delivery of care.",
+      resp2: "Communicate effectively with residents, families, and other healthcare professionals.",
+      resp3: "Provide direct nursing care including medication administration, wound care, and chronic disease management.",
+      resp4: "Monitor, assess, and document residents' health status and respond to changes promptly.",
+      resp5: "Develop and implement individualized care plans in collaboration with the multidisciplinary team.",
+      resp6: "Ensure compliance with LTC home policies, professional standards, and Ministry of Health guidelines.",
+      resp7: "Participate in quality improvement initiatives and staff training programs.",
+      qualLabel: "Qualifications:",
+      qual1: "Current registration with the College of Nurses of Ontario (CNO).",
+      qual2: "Diploma in Practical Nursing from an accredited institution.",
+      qual3: "Experience in long-term care or geriatric nursing preferred.",
+      qual4: "Excellent clinical, organizational, and leadership skills.",
+      qual5: "Ability to work independently and in a team environment.",
+      qual6: "Ability to communicate in Chinese (Mandarin or Cantonese) is preferred."
+    }
   }
 };

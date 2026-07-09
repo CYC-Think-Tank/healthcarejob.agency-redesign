@@ -74,7 +74,7 @@ export default function Home() {
               <Phone className="w-5 h-5" />
               <span>(416) 343-3379</span>
             </a>
-            <a href="/apply" className="flex items-center gap-2 bg-brand hover:bg-brand-hover text-white px-8 py-3.5 rounded-md transition-colors shadow-sm font-semibold">
+            <a href="https://healthcare-job-agency-gpbjdvfqftgwedf7.eastus2-01.azurewebsites.net/apply-now" className="flex items-center gap-2 bg-brand hover:bg-brand-hover text-white px-8 py-3.5 rounded-md transition-colors shadow-sm font-semibold">
               {t.home.applyNow}
             </a>
           </motion.div>
