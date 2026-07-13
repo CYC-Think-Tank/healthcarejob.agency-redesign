@@ -67,14 +67,14 @@ export default function Navbar() {
                 onClick={() => setLanguage('en')}
                 className={language === 'en' ? "text-brand" : "hover:text-brand transition-colors"}
               >
-                EN
+                ENG
               </button>
               <span>|</span>
-              <button 
+              <button
                 onClick={() => setLanguage('zh')}
                 className={language === 'zh' ? "text-brand" : "hover:text-brand transition-colors"}
               >
-                ZH
+                中文
               </button>
             </div>
           </nav>
@@ -128,13 +128,13 @@ export default function Navbar() {
                   onClick={() => { setLanguage('en'); setIsOpen(false); }}
                   className={language === 'en' ? "text-brand" : "text-gray-500 hover:text-brand"}
                 >
-                  EN
+                  ENG
                 </button>
-                <button 
+                <button
                   onClick={() => { setLanguage('zh'); setIsOpen(false); }}
                   className={language === 'zh' ? "text-brand" : "text-gray-500 hover:text-brand"}
                 >
-                  ZH
+                  中文
                 </button>
               </div>
             </div>

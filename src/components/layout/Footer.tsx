@@ -87,10 +87,6 @@ export default function Footer() {
           className="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500"
         >
           <p>© {new Date().getFullYear()} HealthcareJob.Agency. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="#" className="hover:text-brand transition-colors">{t.footer.privacy}</Link>
-            <Link href="#" className="hover:text-brand transition-colors">{t.footer.terms}</Link>
-          </div>
         </motion.div>
       </div>
     </footer>
