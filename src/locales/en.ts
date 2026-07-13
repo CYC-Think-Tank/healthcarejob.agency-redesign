@@ -1,4 +1,5 @@
 export const en = {
+  siteName: "HealthcareJob.Agency",
   nav: {
     services: "Our Services",
     collaboration: "Collaboration",

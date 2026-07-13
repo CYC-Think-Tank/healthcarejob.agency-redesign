@@ -29,9 +29,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group transition-transform duration-300 hover:scale-105">
-            <Image 
-              src="/healthcarejobagencylogo.png"
-              alt="HealthcareJob.Agency Logo"
+            <Image
+              src={language === 'zh' ? "/chineselogo.png" : "/healthcarejobagencylogo.png"}
+              alt={`${t.siteName} Logo`}
               width={200}
               height={200}
               className="h-14 w-auto object-contain"

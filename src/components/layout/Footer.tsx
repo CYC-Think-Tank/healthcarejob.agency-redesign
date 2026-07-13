@@ -22,7 +22,7 @@ const itemVariants = {
 };
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <footer className="bg-gray-50 border-t py-12 mt-auto">
@@ -36,9 +36,9 @@ export default function Footer() {
         >
           <motion.div variants={itemVariants}>
             <Link href="/" className="flex items-center mb-4 group transition-transform duration-300 hover:scale-105">
-              <Image 
-                src="/healthcarejobagencylogo.png"
-                alt="HealthcareJob.Agency Logo"
+              <Image
+                src={language === 'zh' ? "/chineselogo.png" : "/healthcarejobagencylogo.png"}
+                alt={`${t.siteName} Logo`}
                 width={200}
                 height={200}
                 className="h-12 w-auto object-contain"
@@ -86,7 +86,7 @@ export default function Footer() {
           transition={{ delay: 0.5, duration: 0.5 }}
           className="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500"
         >
-          <p>© {new Date().getFullYear()} HealthcareJob.Agency. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {t.siteName}. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

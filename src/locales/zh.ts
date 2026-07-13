@@ -1,4 +1,5 @@
 export const zh = {
+  siteName: "仁慈人愛管理公司",
   nav: {
     services: "我們的服務",
     collaboration: "合作夥伴",
@@ -25,7 +26,7 @@ export const zh = {
     galleryTitle: "走進我們的護理環境",
     gallerySubtitle: "為健康老齡化與優質護理而設計的舒適、有尊嚴的空間。",
     footerBannerEmail: "care@healthcarejob.agency",
-    footerBannerDesc: "HealthcareJob.Agency 為長期護理（LTC）機構、家庭及私人護理和退休生活社區提供富有同理心且全面的人員配置解決方案。"
+    footerBannerDesc: "仁慈人愛管理公司為長期護理（LTC）機構、家庭及私人護理和退休生活社區提供富有同理心且全面的人員配置解決方案。"
   },
   collaborations: {
     title: "研發與機構合作",
@@ -95,7 +96,7 @@ export const zh = {
   },
   career: {
     heroTitle: "準備好加入我們了嗎？",
-    heroSubtitle: "立即加入 HealthcareJob.Agency，邁向長期護理機構個人護理領域，開啟充實的職業生涯。",
+    heroSubtitle: "立即加入仁慈人愛管理公司，邁向長期護理機構個人護理領域，開啟充實的職業生涯。",
     applyNow: "立即申請",
     sectionTitle: "職業發展",
     psw: {

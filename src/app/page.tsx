@@ -8,7 +8,7 @@ import HeroVideo from "@/components/ui/HeroVideo";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -30,9 +30,9 @@ export default function Home() {
             transition={{ duration: 0.7 }}
             className="mb-6 relative z-10"
           >
-            <Image 
-              src="/healthcarejobagencylogo.png"
-              alt="HealthcareJob.Agency Logo"
+            <Image
+              src={language === 'zh' ? "/chineselogo.png" : "/healthcarejobagencylogo.png"}
+              alt={`${t.siteName} Logo`}
               width={100}
               height={100}
               className="w-20 h-20 mx-auto object-contain opacity-95 drop-shadow-md"
