@@ -8,11 +8,12 @@ export const en = {
     apply: "Apply Now"
   },
   home: {
-    heroTitlePart1: "Trusted healthcare staffing for",
+    heroTitlePart1: "Trusted healthcare staffing and management for",
     heroTitlePart2: "long-term care",
-    heroTitlePart3: "facilities.",
-    heroSubtitlePart1: "Our NSs, RNs, RPNs, and PSWs are guided by our 3Cs —",
-    heroSubtitlePart2: "Competence, Compliance & Compassion.",
+    heroTitlePart3: "",
+    heroSubtitlePart1: "Guided by our",
+    heroSubtitlePart2: "3Cs — Competence, Compliance, and Compassion",
+    heroCareStatement: "Our licensed NSs, RNs, RPNs, and PSWs deliver quality care.",
     applyNow: "Apply Now",
     servicesTitle: "Our Services",
     servicesDesc1: "We provide full-service healthcare staffing management — from recruitment and onboarding to training, scheduling, payroll, compliance, and performance management.",

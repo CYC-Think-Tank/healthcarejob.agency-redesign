@@ -61,6 +61,9 @@ export default function Home() {
               {t.home.heroSubtitlePart1} <br className="hidden md:block"/>
               <span className="font-bold text-white">{t.home.heroSubtitlePart2}</span>
             </p>
+            <p className="max-w-2xl mx-auto text-base md:text-lg font-normal text-white/85">
+              {t.home.heroCareStatement}
+            </p>
           </motion.div>
 
           <motion.div

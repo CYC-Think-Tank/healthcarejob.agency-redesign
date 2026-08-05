@@ -8,11 +8,12 @@ export const zh = {
     apply: "立即申請"
   },
   home: {
-    heroTitlePart1: "值得信賴的醫療護理人員配置，專為",
-    heroTitlePart2: "長期護理",
-    heroTitlePart3: "機構而設。",
-    heroSubtitlePart1: "我們的護理督導、註冊護士、註冊實習護士及個人護理員始終秉持我們的核心理念 ——",
-    heroSubtitlePart2: "專業（Competence）、合規（Compliance）與同理心（Compassion）。",
+    heroTitlePart1: "值得信賴的長期護理醫療人員配置與",
+    heroTitlePart2: "管理服務",
+    heroTitlePart3: "",
+    heroSubtitlePart1: "秉持我們的",
+    heroSubtitlePart2: "3Cs —— 專業、合規與同理心",
+    heroCareStatement: "我們持牌的護理督導、註冊護士、註冊實習護士及個人護理員提供優質護理服務。",
     applyNow: "立即申請",
     servicesTitle: "我們的服務",
     servicesDesc1: "我們為醫療護理人員的配置提供一站式全方位服務，包括招募和安排個人護理員（PSWs）、註冊實習護士（RPNs）以及註冊護士（RNs）。我們的支援不僅限於人員派遣，還涵蓋培訓、薪資管理、合規保障與員工績效評估。",
