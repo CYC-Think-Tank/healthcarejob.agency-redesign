@@ -212,6 +212,6 @@ export const en = {
     staffRecognition: "Favourite staff",
     noneNoted: "None noted",
     backToSurvey: "Back to the survey",
-    storedNote: "Responses are saved on the server in data/survey-responses.json. You can also export them as a CSV file."
+    storedNote: "Responses are saved on the server. You can also export them as a CSV file."
   }
 };

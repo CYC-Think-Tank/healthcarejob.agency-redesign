@@ -16,7 +16,8 @@ export async function submitSurvey(
   try {
     await saveSurveyResponse(submission);
     return { ok: true };
-  } catch {
+  } catch (error) {
+    console.error("Failed to save survey response", error);
     return { ok: false, error: "save" };
   }
 }
@@ -31,7 +32,8 @@ export async function getSurveyResponses(
     }
     const responses = await listSurveyResponses();
     return { ok: true, responses };
-  } catch {
+  } catch (error) {
+    console.error("Failed to load survey responses", error);
     return { ok: false, error: "save" };
   }
 }

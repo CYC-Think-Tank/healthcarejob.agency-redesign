@@ -212,6 +212,6 @@ export const zh = {
     staffRecognition: "表揚員工",
     noneNoted: "未填寫",
     backToSurvey: "返回調查",
-    storedNote: "回覆儲存在伺服器的 data/survey-responses.json。您也可以將回覆匯出為 CSV 檔。"
+    storedNote: "回覆已儲存在伺服器上。您也可以將回覆匯出為 CSV 檔。"
   }
 };

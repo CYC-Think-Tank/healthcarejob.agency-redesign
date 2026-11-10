@@ -1,6 +1,7 @@
 import { randomBytes, randomUUID, timingSafeEqual } from "crypto";
 import { promises as fs } from "fs";
 import path from "path";
+import { get, list, put } from "@vercel/blob";
 import {
   APPRECIATION_MAX,
   RATING_IDS,
@@ -14,10 +15,20 @@ import {
 const dataDir = path.join(process.cwd(), "data");
 const responsesFile = path.join(dataDir, "survey-responses.json");
 const accessFile = path.join(dataDir, "survey-access-code.txt");
+const responsePrefix = "survey-responses/";
+const accessBlobPath = "survey/access-code.txt";
 
 const RESPONDENTS: readonly RespondentType[] = ["resident", "family", "other"];
 
 let chain: Promise<void> = Promise.resolve();
+
+function usesBlobStorage(): boolean {
+  return (
+    process.env.VERCEL === "1" ||
+    Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim()) ||
+    Boolean(process.env.BLOB_STORE_ID?.trim())
+  );
+}
 
 function locked<T>(task: () => Promise<T>): Promise<T> {
   const run = chain.then(task, task);
@@ -78,20 +89,108 @@ export function parseSubmission(input: SurveySubmission): Omit<SurveyResponse, "
   };
 }
 
+function textField(value: unknown): string {
+  return typeof value === "string" ? value : "";
+}
+
+function normalizeResponse(value: unknown): SurveyResponse | null {
+  if (!value || typeof value !== "object") return null;
+  const source = value as Partial<SurveyResponse>;
+  if (typeof source.id !== "string" || typeof source.submittedAt !== "string") return null;
+  if (!isRespondent(source.respondent)) return null;
+  const ratings = parseRatings(source.ratings);
+  if (!ratings) return null;
+  if (source.language !== "en" && source.language !== "zh") return null;
+
+  return {
+    id: source.id,
+    submittedAt: source.submittedAt,
+    respondent: source.respondent,
+    ratings,
+    staffName: textField(source.staffName),
+    appreciation: textField(source.appreciation),
+    careAppreciation: textField(source.careAppreciation),
+    improvement: textField(source.improvement),
+    language: source.language,
+  };
+}
+
+function newestFirst(responses: SurveyResponse[]): SurveyResponse[] {
+  return responses.sort((a, b) => b.submittedAt.localeCompare(a.submittedAt));
+}
+
 async function readResponses(): Promise<SurveyResponse[]> {
   try {
     const raw = await fs.readFile(responsesFile, "utf8");
     const parsed: unknown = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as SurveyResponse[]) : [];
+    if (!Array.isArray(parsed)) return [];
+    return parsed.flatMap((item) => {
+      const response = normalizeResponse(item);
+      return response ? [response] : [];
+    });
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
     throw error;
   }
 }
 
+async function readPrivateText(pathname: string): Promise<string | null> {
+  const result = await get(pathname, { access: "private", useCache: false });
+  if (!result || result.statusCode !== 200 || !result.stream) return null;
+  return new Response(result.stream).text();
+}
+
+async function saveBlobResponse(submission: Omit<SurveyResponse, "id" | "submittedAt">): Promise<void> {
+  const response: SurveyResponse = {
+    ...submission,
+    id: randomUUID(),
+    submittedAt: new Date().toISOString(),
+  };
+  await put(`${responsePrefix}${response.id}.json`, JSON.stringify(response), {
+    access: "private",
+    addRandomSuffix: false,
+    allowOverwrite: false,
+    contentType: "application/json",
+  });
+}
+
+async function listBlobResponses(): Promise<SurveyResponse[]> {
+  const pathnames: string[] = [];
+  let cursor: string | undefined;
+
+  do {
+    const page = await list({ prefix: responsePrefix, cursor, limit: 1000 });
+    for (const blob of page.blobs) {
+      if (blob.pathname.endsWith(".json")) pathnames.push(blob.pathname);
+    }
+    cursor = page.hasMore ? page.cursor : undefined;
+  } while (cursor);
+
+  const responses: SurveyResponse[] = [];
+  for (let index = 0; index < pathnames.length; index += 20) {
+    const texts = await Promise.all(pathnames.slice(index, index + 20).map((pathname) => readPrivateText(pathname)));
+    for (const text of texts) {
+      if (!text) continue;
+      try {
+        const response = normalizeResponse(JSON.parse(text));
+        if (response) responses.push(response);
+      } catch {
+        // Skip a blob that is not a survey response.
+      }
+    }
+  }
+
+  return newestFirst(responses);
+}
+
 export async function saveSurveyResponse(
   submission: Omit<SurveyResponse, "id" | "submittedAt">,
 ): Promise<void> {
+  if (usesBlobStorage()) {
+    await saveBlobResponse(submission);
+    return;
+  }
+
   await locked(async () => {
     await fs.mkdir(dataDir, { recursive: true });
     const responses = await readResponses();
@@ -108,10 +207,8 @@ export async function saveSurveyResponse(
 }
 
 export async function listSurveyResponses(): Promise<SurveyResponse[]> {
-  return locked(async () => {
-    const responses = await readResponses();
-    return responses.slice().reverse();
-  });
+  if (usesBlobStorage()) return listBlobResponses();
+  return locked(async () => newestFirst(await readResponses()));
 }
 
 async function readOrCreateAccessCode(): Promise<string> {
@@ -128,9 +225,30 @@ async function readOrCreateAccessCode(): Promise<string> {
   return code;
 }
 
+async function readOrCreateBlobAccessCode(): Promise<string> {
+  const existing = (await readPrivateText(accessBlobPath))?.trim();
+  if (existing) return existing;
+
+  const code = randomBytes(9).toString("base64url");
+  try {
+    await put(accessBlobPath, `${code}\n`, {
+      access: "private",
+      addRandomSuffix: false,
+      allowOverwrite: false,
+      contentType: "text/plain",
+    });
+    return code;
+  } catch (error) {
+    const raced = (await readPrivateText(accessBlobPath))?.trim();
+    if (raced) return raced;
+    throw error;
+  }
+}
+
 export async function getAccessCode(): Promise<string> {
   const fromEnv = process.env.SURVEY_ACCESS_CODE?.trim();
   if (fromEnv) return fromEnv;
+  if (usesBlobStorage()) return readOrCreateBlobAccessCode();
   return locked(() => readOrCreateAccessCode());
 }
 
