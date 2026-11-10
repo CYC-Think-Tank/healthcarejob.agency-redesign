@@ -16,6 +16,7 @@ export default function Navbar() {
     { name: t.nav.services, href: "/#services" },
     { name: t.nav.collaboration, href: "/collaborations" },
     { name: t.nav.career, href: "/career" },
+    { name: t.nav.survey, href: "/survey" },
   ];
 
   return (
